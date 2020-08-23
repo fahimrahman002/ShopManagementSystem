@@ -5,7 +5,7 @@
  */
 package shopmanagement;
 
-import com.sun.glass.events.KeyEvent;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -345,7 +345,6 @@ public class saleItemForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        productTable.setRowHeight(20);
         productTable.getTableHeader().setReorderingAllowed(false);
         productTable.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
