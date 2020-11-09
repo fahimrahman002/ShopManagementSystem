@@ -10,7 +10,7 @@ public class JConnection {
 //        String currentDir = System.getProperty("user.dir");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost/shopmanagement", "root", "");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost/shop_management_system", "root", "");
             System.out.println("Connected");
             return c;
         } catch (Exception e) {

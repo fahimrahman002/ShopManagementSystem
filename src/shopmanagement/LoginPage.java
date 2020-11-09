@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package shopmanagement;
-
+ 
 import com.mysql.jdbc.Statement;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -242,7 +242,7 @@ public class LoginPage extends javax.swing.JFrame {
         userErrorLabel.setText("         User not verified");
         jPanel2.add(userErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 209, 25));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Documents\\NetBeansProjects\\Icons\\bg.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg.jpg"))); // NOI18N
         jLabel4.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jLabel4FocusLost(evt);
@@ -417,7 +417,7 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4FocusLost
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-        String sql = "INSERT INTO users(name,email,user,pass,phone,org,date,location,currency) VALUES(?,?,?,?,?,?,?,?,?)";//table name is 'users'
+        String sql = "INSERT INTO users(name,email,username,pass,phone,org,date,location,currency) VALUES(?,?,?,?,?,?,?,?,?)";//table name is 'users'
 
         try {
             final JPanel panel = new JPanel();
@@ -425,11 +425,10 @@ public class LoginPage extends javax.swing.JFrame {
             java.util.Date utilDate = dateChooser.getDate();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 
-            String sql2 = "SELECT user FROM users WHERE user=" + "\'" + newUserTextField.getText() + "\'";
+            String sql2 = "SELECT username FROM users WHERE username=" + "\'" + newUserTextField.getText() + "\'";
             st = (Statement) conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs2 = st.executeQuery(sql2);
             if (rs2.next()) {
-
                 JOptionPane.showMessageDialog(panel, "Username has already taken.Please choose a unique username.", "Warning",
                         JOptionPane.WARNING_MESSAGE);
                 newUserTextField.setText("");
